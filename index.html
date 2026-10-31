@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter VIII: Market Efficiency & Anomalies</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #1e293b; }
+    h1, h2, h3, .font-heading { font-family: 'Space Grotesk', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+    .slide {
+      display: none;
+      width: 100%;
+      min-height: 100vh;
+      background-color: #f8fafc;
+      padding: 48px 64px 100px 64px;
+      position: relative;
+    }
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Enforced Legibility Typography Hierarchy */
+    .slide-title { font-size: 40px; font-weight: 700; line-height: 1.15; color: #0f172a; }
+    .section-title { font-size: 26px; font-weight: 700; color: #1e293b; }
+    .body-text { font-size: 21px; line-height: 1.5; color: #334155; }
+    .card-title { font-size: 24px; font-weight: 700; color: #0f172a; }
+    .eyebrow { font-size: 16px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    .nav-btn {
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+  <!-- ==================== SLIDE 1: TITLE SLIDE ==================== -->
+  <section class="slide active !bg-slate-900 !text-white" id="slide-1">
+    <div class="flex justify-between items-center border-b border-slate-800 pb-6">
+      <span class="font-mono text-pink-500 eyebrow">CAPITAL MARKETS &amp; FINANCIAL ECONOMICS</span>
+      <span class="font-mono text-slate-400 text-lg">CHAPTER VIII</span>
+    </div>
+
+    <div class="my-auto max-w-5xl">
+      <div class="inline-block bg-pink-500/10 border border-pink-500/30 text-pink-400 font-mono px-4 py-2 rounded-full text-lg mb-6">
+        Academic Presentation &amp; Classroom Report
+      </div>
+      <h1 class="text-5xl md:text-6xl font-bold font-heading text-white leading-tight mb-8">
+        Market Efficiency <br><span class="text-pink-500">&amp; Market Anomalies</span>
+      </h1>
+      <p class="body-text !text-slate-300 text-2xl max-w-3xl leading-relaxed">
+        An in-depth analysis of the Efficient Market Hypothesis (EMH), psychological behavioral finance biases, and empirical deviations in capital markets.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6 border-t border-slate-800 text-slate-300">
+      <div>
+        <p class="eyebrow text-slate-500 mb-1">COURSE SUBJECT</p>
+        <p class="text-xl font-semibold text-white">Capital Markets &amp; Investments</p>
+      </div>
+      <div>
+        <p class="eyebrow text-slate-500 mb-1">THEORETICAL DUALITY</p>
+        <p class="text-xl font-semibold text-pink-400">EMH vs. Behavioral Economics</p>
+      </div>
+      <div class="hidden md:block text-right">
+        <p class="eyebrow text-slate-500 mb-1">NAVIGATION HINT</p>
+        <p class="text-xl font-mono text-slate-400">Use ← → Keys or Controls</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 2: OBJECTIVES ==================== -->
+  <section class="slide" id="slide-2">
+    <div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="slide-title">Learning Objectives &amp; Scope</h2>
+        <span class="font-mono text-pink-600 bg-pink-50 px-4 py-2 rounded border border-pink-200 eyebrow">OVERVIEW</span>
+      </div>
+      <p class="body-text mb-8">Key domain concepts covered in Chapter VIII for capital market evaluation:</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-pink-600 text-3xl mb-4"><i class="fa-solid fa-chart-line"></i></div>
+          <h3 class="card-title mb-2">1. EMH Concept</h3>
+          <p class="body-text !text-base">Understanding information pricing, market rationality, and asset valuation expectations.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-pink-600 text-3xl mb-4"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <h3 class="card-title mb-2">2. Market Anomalies</h3>
+          <p class="body-text !text-base">Identifying empirical calendar, price, fundamental, and microstructural deviations.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-pink-600 text-3xl mb-4"><i class="fa-solid fa-brain"></i></div>
+          <h3 class="card-title mb-2">3. Behavioral Factors</h3>
+          <p class="body-text !text-base">Analyzing cognitive heuristics, investor sentiment, and market psychology.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-pink-600 text-3xl mb-4"><i class="fa-solid fa-sliders"></i></div>
+          <h3 class="card-title mb-2">4. Event &amp; Portfolio Studies</h3>
+          <p class="body-text !text-base">Evaluating event impacts, algorithmic trading, and efficient portfolio design.</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 pt-4 flex justify-between text-slate-500 font-mono text-base">
+      <span>Chapter VIII Framework</span>
+      <span>SLIDE 02 / 13</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 3: EMH DEFINITION ==================== -->
+  <section class="slide" id="slide-3">
+    <div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="slide-title">The Efficient Market Hypothesis (EMH)</h2>
+        <span class="font-mono text-slate-600 eyebrow">FOUNDATIONAL THEORY</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div class="lg:col-span-7 bg-slate-900 text-white p-8 rounded-2xl flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-pink-400 eyebrow block mb-3">CORE DEFINITION</span>
+            <p class="text-2xl font-medium leading-relaxed mb-6">
+              "Financial markets are efficient, meaning that security prices quickly and accurately reflect all available information, making it virtually impossible to consistently earn abnormal risk-adjusted returns."
+            </p>
+          </div>
+          <div class="border-t border-slate-800 pt-4 text-slate-400 font-mono text-base">
+            Pioneered by Eugene Fama (1965)
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 flex flex-col gap-6">
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+            <h3 class="section-title text-pink-600 mb-2">Universal Information</h3>
+            <p class="body-text">Assumes information is widely and instantaneously shared across all market participants without cost.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+            <h3 class="section-title text-pink-600 mb-2">Rapid Price Adjustment</h3>
+            <p class="body-text">Prices adjust so rapidly to new data that no investor can buy undervalued or sell overvalued assets predictably.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 pt-4 flex justify-between text-slate-500 font-mono text-base">
+      <span>Efficient Market Hypothesis</span>
+      <span>SLIDE 03 / 13</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 4: THREE FORMS OF EMH ==================== -->
+  <section class="slide" id="slide-4">
+    <div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="slide-title">Three Forms of Market Efficiency</h2>
+        <span class="font-mono text-pink-600 bg-pink-50 px-4 py-2 rounded border border-pink-200 eyebrow">DEGREES OF EFFICIENCY</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-8 rounded-2xl border-t-8 border-slate-400 border-x border-b border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-slate-500 eyebrow block mb-2">LEVEL 01</span>
+            <h3 class="card-title text-2xl mb-4">Weak-Form</h3>
+            <p class="body-text mb-6">Prices reflect all <strong>past trading information</strong> (historical prices and trading volume).</p>
+            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+              <p class="body-text !text-lg font-medium text-slate-800"><strong>Implication:</strong> Technical analysis cannot generate excess returns.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border-t-8 border-pink-500 border-x border-b border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-pink-600 eyebrow block mb-2">LEVEL 02</span>
+            <h3 class="card-title text-2xl mb-4">Semi-Strong Form</h3>
+            <p class="body-text mb-6">Prices reflect all <strong>publicly available information</strong> (financial statements, news, macroeconomic data).</p>
+            <div class="bg-pink-50 p-4 rounded-lg border border-pink-200">
+              <p class="body-text !text-lg font-medium text-slate-800"><strong>Implication:</strong> Neither fundamental nor technical analysis yields alpha.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border-t-8 border-slate-900 border-x border-b border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-slate-900 eyebrow block mb-2">LEVEL 03</span>
+            <h3 class="card-title text-2xl mb-4">Strong-Form</h3>
+            <p class="body-text mb-6">Prices reflect <strong>all information</strong>, including private insider disclosures and public data.</p>
+            <div class="bg-slate-100 p-4 rounded-lg border border-slate-300">
+              <p class="body-text !text-lg font-medium text-slate-800"><strong>Implication:</strong> Even insider knowledge cannot consistently beat the market.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 pt-4 flex justify-between text-slate-500 font-mono text-base">
+      <span>Fama's Market Efficiency Framework</span>
+      <span>SLIDE 04 / 13</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 5: SUPPORTERS VS CRITICS ==================== -->
+  <section class="slide" id="slide-5">
+    <div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="slide-title">The EMH Academic Debate</h2>
+        <span class="font-mono text-slate-600 eyebrow">SUPPORTERS VS. CRITICS</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-emerald-50/60 border border-emerald-200 p-8 rounded-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <i class="fa-solid fa-circle-check text-emerald-600 text-3xl"></i>
+            <h3 class="card-title text-emerald-950">Arguments Supporting EMH</h3>
+          </div>
+          <ul class="space-y-4 body-text">
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-600 font-bold">•</span>
+              <span><strong>Empirical Evidence:</strong> Active fund managers consistently underperform passive benchmark indices long-term.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-600 font-bold">•</span>
+              <span><strong>Rational Actors:</strong> Aligned with classic economic theory assuming rational wealth maximization.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-600 font-bold">•</span>
+              <span><strong>Fair Information Flow:</strong> Rapid dissemination limits mispricing windows.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-rose-50/60 border border-rose-200 p-8 rounded-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <i class="fa-solid fa-circle-xmark text-rose-600 text-3xl"></i>
+            <h3 class="card-title text-rose-950">Criticisms &amp; Counter-Evidence</h3>
+          </div>
+          <ul class="space-y-4 body-text">
+            <li class="flex items-start gap-3">
+              <span class="text-rose-600 font-bold">•</span>
+              <span><strong>Behavioral Biases:</strong> Herd behavior, emotions, and irrational exuberance drive price deviations.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-rose-600 font-bold">•</span>
+              <span><strong>Persistent Anomalies:</strong> Proven size, value, and momentum factors generate systematic excess returns.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-rose-600 font-bold">•</span>
+              <span><strong>Bubbles &amp; Crashes:</strong> Tech Bubble (2000) &amp; 2008 Crash prove extreme market inefficiencies.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 pt-4 flex justify-between text-slate-500 font-mono text-base">
+      <span>Empirical &amp; Theoretical Evaluation</span>
+      <span>SLIDE 05 / 13</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 6: PRACTICAL IMPLICATIONS ==================== -->
+  <section class="slide" id="slide-6">
+    <div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="slide-title">Practical Investment Implications</h2>
+        <span class="font-mono text-pink-600 bg-pink-50 px-4 py-2 rounded border border-pink-200 eyebrow">PORTFOLIO STRATEGY</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+          <div class="bg-pink-100 text-pink-600 p-4 rounded-lg text-2xl font-bold font-mono">01</div>
+          <div>
+            <h3 class="card-title mb-2">Passive vs. Active Investing</h3>
+            <p class="body-text">Supports passive low-cost indexing (ETFs) over active stock picking due to high transaction fees and low probability of beating the market.</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+          <div class="bg-pink-100 text-pink-600 p-4 rounded-lg text-2xl font-bold font-mono">02</div>
+          <div>
+            <h3 class="card-title mb-2">Market Timing Inefficacy</h3>
+            <p class="body-text">Attempts to time entry/exit points incur friction costs and taxes without providing predictable excess returns.</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+          <div class="bg-pink-100 text-pink-600 p-4 rounded-lg text-2xl font-bold font-mono">03</div>
+          <div>
+            <h3 class="card-title mb-2">Diversification Imperative</h3>
+            <p class="body-text">Because outperformance is random, diversification across uncorrelated asset classes is the primary tool for risk reduction.</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+          <div class="bg-pink-100 text-pink-600 p-4 rounded-lg text-2xl font-bold font-mono">04</div>
+          <div>
+            <h3 class="card-title mb-2">Illiquid Market Alpha</h3>
+            <p class="body-text">Active management strategies are best reserved for less liquid or under-researched asset classes where inefficiencies linger.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 pt-4 flex justify-between text-slate-500 font-mono text-base">
+      <span>Application of EMH Principles</span>
+      <span>SLIDE 06 / 13</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 7: BEHAVIORAL FINANCE ==================== -->
+  <section class="slide" id="slide-7">
+    <div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="slide-title">Overview of Behavioral Finance</h2>
+        <span class="font-mono text-slate-600 eyebrow">PSYCHOLOGY &amp; MARKETS</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 bg-slate-900 text-white p-8 rounded-2xl">
+          <span class="font-mono text-pink-400 eyebrow block mb-3">CORE PARADIGM SHIFT</span>
+          <h3 class="text-3xl font-bold mb-4 font-heading">Challenging Rationality</h3>
+          <p class="body-text !text-slate-300 mb-6">
+            Behavioral finance combines psychology and financial economics to explain why investors make systematically irrational financial decisions.
+          </p>
+          <div class="border-t border-slate-800 pt-4 text-pink-400 font-mono text-lg">
+            Rational Actors → Human Psychology
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 space-y-4">
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+            <h4 class="section-title text-slate-900 mb-2">Cognitive Biases</h4>
+            <p class="body-text">Mental shortcuts (heuristics) that lead to systematic processing errors and valuation distortions.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+            <h4 class="section-title text-slate-900 mb-2">Emotional Drivers</h4>
+            <p class="body-text">Fear and greed trigger panic selling during downturns and speculative bubbles during market euphoria.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+            <h4 class="section-title text-slate-900 mb-2">Herding &amp; Framing</h4>
+            <p class="body-text">Investors follow crowds blindly, and choices vary depending on how information is presented.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 pt-4 flex justify-between text-slate-500 font-mono text-base">
+      <span>Behavioral Finance Foundations</span>
+      <span>SLIDE 07 / 13</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 8: TYPES OF BEHAVIORAL BIASES ==================== -->
+  <section class="slide" id="slide-8">
+    <div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="slide-title">Key Cognitive Biases &amp; Heuristics</h2>
+        <span class="font-mono text-pink-600 bg-pink-50 px-4 py-2 rounded border border-pink-200 eyebrow">BEHAVIORAL TAXONOMY</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-pink-600 text-3xl mb-3"><i class="fa-solid fa-anchor"></i></div>
+          <h3 class="card-title mb-2">Anchoring &amp; Confirmation</h3>
+          <p class="body-text !text-base">Fixating on arbitrary initial numbers (e.g., purchase price) and seeking only confirming evidence.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-pink-600 text-3xl mb-3"><i class="fa-solid fa-trophy"></i></div>
+          <h3 class="card-title mb-2">Overconfidence</h3>
+          <p class="body-text !text-base">Overestimating personal predictive ability and control, leading to excessive risk taking.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-pink-600 text-3xl mb-3"><i class="fa-solid fa-scale-unbalanced-flip"></i></div>
+          <h3 class="card-title mb-2">Loss Aversion</h3>
+          <p class="body-text !text-base">Prospect Theory: The psychological pain of a loss is twice as intense as the pleasure of an equal gain.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-pink-600 text-3xl mb-3"><i class="fa-solid fa-wallet"></i></div>
+          <h3 class="card-title mb-2">Mental Accounting</h3>
+          <p class="body-text !text-base">Separating money into irrational mental buckets (e.g., spending windfalls foolishly vs. regular income).</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 pt-4 flex justify-between text-slate-500 font-mono text-base">
+      <span>Psychological Drivers of Mispricing</span>
+      <span>SLIDE 08 / 13</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 9: STRENGTHS & LIMITATIONS ==================== -->
+  <section class="slide" id="slide-9">
+    <div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="slide-title">Strengths &amp; Limitations of Behavioral Finance</h2>
+        <span class="font-mono text-slate-600 eyebrow">METHODOLOGY EVALUATION</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+          <h3 class="section-title text-pink-600 mb-6 flex items-center gap-3">
+            <i class="fa-solid fa-thumbs-up"></i> Key Strengths
+          </h3>
+          <ul class="space-y-4 body-text">
+            <li><strong>Realistic Model:</strong> Reflects actual human decision-making rather than idealized economic rationales.</li>
+            <li><strong>Explains Anomalies:</strong> Provides clear psychological underpinnings for market crashes, bubbles, and momentum.</li>
+            <li><strong>Improved Risk Controls:</strong> Helps investors recognize individual cognitive biases to avoid emotional errors.</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+          <h3 class="section-title text-slate-700 mb-6 flex items-center gap-3">
+            <i class="fa-solid fa-triangle-exclamation"></i> Limitations
+          </h3>
+          <ul class="space-y-4 body-text">
+            <li><strong>Lack of Predictive Power:</strong> Excellent at explaining past events, but struggles to predict timing of future anomalies.</li>
+            <li><strong>No Unified Theory:</strong> Represents a collection of isolated biases rather than a single cohesive financial model.</li>
+            <li><strong>Investor Heterogeneity:</strong> Biases vary significantly among individual and institutional investors.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 pt-4 flex justify-between text-slate-500 font-mono text-base">
+      <span>Evaluating Behavioral Models</span>
+      <span>SLIDE 09 / 13</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 10: MARKET ANOMALIES INTRO ==================== -->
+  <section class="slide" id="slide-10">
+    <div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="slide-title">Market Anomalies: Core Concepts</h2>
+        <span class="font-mono text-pink-600 bg-pink-50 px-4 py-2 rounded border border-pink-200 eyebrow">EMPIRICAL DEVIATIONS</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div class="lg:col-span-6 bg-slate-900 text-white p-8 rounded-2xl flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-pink-400 eyebrow block mb-3">DEFINITION</span>
+            <h3 class="text-3xl font-bold font-heading mb-4">What is a Market Anomaly?</h3>
+            <p class="body-text !text-slate-300">
+              A persistent, statistically significant pricing pattern where asset returns deviate from fair value or standard risk-adjusted EMH predictions.
+            </p>
+          </div>
+          <div class="border-t border-slate-800 pt-4 text-slate-400 font-mono text-base">
+            Challenges Weak &amp; Semi-Strong EMH
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 space-y-4">
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+            <h4 class="section-title text-pink-600 mb-2">Transient Nature</h4>
+            <p class="body-text">Once identified and publicly exploited by traders, many anomalies self-correct and diminish over time.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+            <h4 class="section-title text-pink-600 mb-2">Primary Drivers</h4>
+            <p class="body-text">Caused by behavioral biases, transaction costs, short-selling limits, and structural market frictions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 pt-4 flex justify-between text-slate-500 font-mono text-base">
+      <span>Market Anomalies Introduction</span>
+      <span>SLIDE 10 / 13</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 11: CATEGORIES OF ANOMALIES ==================== -->
+  <section class="slide" id="slide-11">
+    <div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="slide-title">Categories of Market Anomalies</h2>
+        <span class="font-mono text-slate-600 eyebrow">CATEGORIZATION</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-pink-600 font-mono font-bold text-xl mb-2">01. Price-Based</div>
+          <h3 class="card-title mb-2">Momentum &amp; PEAD</h3>
+          <p class="body-text !text-base">Post-Earnings Announcement Drift (PEAD): Stocks continue drifting in the direction of earnings surprises for extended periods.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-pink-600 font-mono font-bold text-xl mb-2">02. Calendar</div>
+          <h3 class="card-title mb-2">January Effect</h3>
+          <p class="body-text !text-base">Small-cap stocks systematically outperform in January due to tax-loss harvesting sell-offs in December followed by repurchases.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-pink-600 font-mono font-bold text-xl mb-2">03. Fundamental</div>
+          <h3 class="card-title mb-2">Value &amp; Size Effect</h3>
+          <p class="body-text !text-base">Low P/E or low P/B stocks (value) and small-cap firms consistently beat high-valuation large-cap equities risk-adjusted.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-pink-600 font-mono font-bold text-xl mb-2">04. Microstructure</div>
+          <h3 class="card-title mb-2">Bid-Ask &amp; Clustering</h3>
+          <p class="body-text !text-base">Price clustering around round numbers and bid-ask spread inefficiencies creating friction-based arbitrage constraints.</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 pt-4 flex justify-between text-slate-500 font-mono text-base">
+      <span>Empirical Anomaly Taxonomies</span>
+      <span>SLIDE 11 / 13</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 12: CLASSIFICATION FRAMEWORKS ==================== -->
+  <section class="slide" id="slide-12">
+    <div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="slide-title">Structural &amp; Informational Classifications</h2>
+        <span class="font-mono text-pink-600 bg-pink-50 px-4 py-2 rounded border border-pink-200 eyebrow">THEORETICAL CLASSIFICATION</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <h3 class="card-title text-pink-600 mb-3">Informational Anomalies</h3>
+          <p class="body-text mb-4">Stem from asymmetric information processing or delayed public dissemination.</p>
+          <ul class="body-text !text-base space-y-2 text-slate-600">
+            <li>• Earnings surprise reversals</li>
+            <li>• Corporate M&amp;A announcements</li>
+            <li>• Seasonal info gaps</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <h3 class="card-title text-pink-600 mb-3">Behavioral Anomalies</h3>
+          <p class="body-text mb-4">Emerge from investor psychological biases contradicting market rationality.</p>
+          <ul class="body-text !text-base space-y-2 text-slate-600">
+            <li>• Overreaction / Underreaction</li>
+            <li>• Herd-driven bubble formations</li>
+            <li>• Sentiment swings</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <h3 class="card-title text-pink-600 mb-3">Structural Anomalies</h3>
+          <p class="body-text mb-4">Arise from market mechanics, legal rules, and institutional friction constraints.</p>
+          <ul class="body-text !text-base space-y-2 text-slate-600">
+            <li>• Short-sale restrictions</li>
+            <li>• Regulatory trading halts</li>
+            <li>• Cross-border arbitrage rules</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 pt-4 flex justify-between text-slate-500 font-mono text-base">
+      <span>Classifying Root Causes</span>
+      <span>SLIDE 12 / 13</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 13: SUMMARY & TAKEAWAYS ==================== -->
+  <section class="slide !bg-slate-900 !text-white" id="slide-13">
+    <div class="flex justify-between items-center border-b border-slate-800 pb-6">
+      <h2 class="slide-title !text-white">Chapter Summary &amp; Key Takeaways</h2>
+      <span class="font-mono text-pink-500 eyebrow">FINAL RECAP</span>
+    </div>
+
+    <div class="my-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-slate-800/80 p-8 rounded-2xl border border-slate-700">
+        <div class="text-pink-400 font-mono font-bold text-2xl mb-4">01</div>
+        <h3 class="card-title !text-white mb-3">EMH as a Benchmark</h3>
+        <p class="body-text !text-slate-300">Markets are highly competitive and generally efficient, making passive indexing the most sensible core strategy for most investors.</p>
+      </div>
+
+      <div class="bg-slate-800/80 p-8 rounded-2xl border border-slate-700">
+        <div class="text-pink-400 font-mono font-bold text-2xl mb-4">02</div>
+        <h3 class="card-title !text-white mb-3">Behavioral Reality</h3>
+        <p class="body-text !text-slate-300">Human psychology and cognitive biases lead to real market inefficiencies, creating temporal pricing anomalies.</p>
+      </div>
+
+      <div class="bg-slate-800/80 p-8 rounded-2xl border border-slate-700">
+        <div class="text-pink-400 font-mono font-bold text-2xl mb-4">03</div>
+        <h3 class="card-title !text-white mb-3">Exploitation Limits</h3>
+        <p class="body-text !text-slate-300">Transaction costs, risks, and arbitrage barriers mean that turning anomalies into guaranteed profit is extremely difficult.</p>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-800 pt-4 flex justify-between items-center text-slate-400 font-mono text-base">
+      <span>End of Presentation | Chapter VIII</span>
+      <span class="text-pink-400">SLIDE 13 / 13</span>
+    </div>
+  </section>
+
+  <!-- ==================== PERSISTENT NAVIGATION BAR ==================== -->
+  <footer class="fixed bottom-0 left-0 right-0 bg-slate-900 border-t border-slate-800 text-white py-4 px-8 flex justify-between items-center z-50">
+    <div class="flex items-center gap-4">
+      <button id="prev-btn" class="nav-btn bg-slate-800 hover:bg-pink-600 text-white font-semibold py-2 px-5 rounded-lg border border-slate-700 text-lg flex items-center gap-2">
+        <i class="fa-solid fa-arrow-left"></i> Prev
+      </button>
+      <button id="next-btn" class="nav-btn bg-pink-600 hover:bg-pink-500 text-white font-semibold py-2 px-5 rounded-lg text-lg flex items-center gap-2">
+        Next <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+
+    <div class="flex items-center gap-4 font-mono">
+      <span class="text-slate-400 text-base">Jump to:</span>
+      <select id="slide-select" class="bg-slate-800 text-white border border-slate-700 rounded-lg px-3 py-2 text-base font-sans focus:outline-none focus:border-pink-500">
+        <!-- Generated by JS -->
+      </select>
+      <span id="slide-indicator" class="text-pink-400 font-bold text-lg ml-2">1 / 13</span>
+    </div>
+  </footer>
+
+  <!-- ==================== SLIDESHOW SCRIPT ==================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slides = document.querySelectorAll('.slide');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const slideSelect = document.getElementById('slide-select');
+      const slideIndicator = document.getElementById('slide-indicator');
+      let currentSlide = 0;
+
+      // Populate Dropdown
+      slides.forEach((slide, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        const titleText = slide.querySelector('.slide-title')?.innerText || `Slide ${index + 1}`;
+        option.textContent = `${index + 1}. ${titleText.substring(0, 30)}...`;
+        slideSelect.appendChild(option);
+      });
+
+      function updateSlideshow() {
+        slides.forEach((slide, index) => {
+          slide.classList.toggle('active', index === currentSlide);
+        });
+        slideSelect.value = currentSlide;
+        slideIndicator.textContent = `${currentSlide + 1} / ${slides.length}`;
+        window.scrollTo(0, 0);
+      }
+
+      function nextSlide() {
+        if (currentSlide < slides.length - 1) {
+          currentSlide++;
+          updateSlideshow();
+        }
+      }
+
+      function prevSlide() {
+        if (currentSlide > 0) {
+          currentSlide--;
+          updateSlideshow();
+        }
+      }
+
+      // Event Listeners
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+      slideSelect.addEventListener('change', (e) => {
+        currentSlide = parseInt(e.target.value);
+        updateSlideshow();
+      });
+
+      // Keyboard Shortcuts
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'Space') {
+          nextSlide();
+        } else if (e.key === 'ArrowLeft') {
+          prevSlide();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
